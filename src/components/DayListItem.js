@@ -13,7 +13,7 @@ export default function DayListItem(props) {
     if (props.spots === 1) {
       return `${props.spots} spot remaining`
     }
-    console.log("These are the spots: ", props.spots);
+
     return `${props.spots} spots remaining`;
   };
 
