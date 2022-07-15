@@ -183,8 +183,6 @@ storiesOf("Appointment", module)
       student="Raiza De Guzman"
       interviewer={3}
       interviewers={interviewers}
-      // onSave={action("onSave")}
-      onSave={function onSave(student, interviewer) {console.log(`Saving appt with ${student} and ${interviewer} interviewer`)}}
-      onCancel={action("onCancel")}
+      onSave={action("onSave")}
     />
   ));
