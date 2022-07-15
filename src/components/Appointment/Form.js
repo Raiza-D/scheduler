@@ -18,9 +18,6 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  const clickHandler = () => {
-    props.onSave(student, interviewer)
-  }
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -44,9 +41,7 @@ export default function Form(props) {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={clickHandler}>Save</Button>
-          {/* <Button confirm onClick={() => {props.onSave(interviewer, student)}}>Save</Button> */}
-          
+          <Button confirm onClick={() => {props.onSave(interviewer, student)}}>Save</Button>  
         </section>
       </section>
     </main>
