@@ -149,40 +149,42 @@ storiesOf("Appointment", module)
     backgrounds: [{ name: "white", value: "#fff", default: true }],
   })
   .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm"/>)
-  .add("Header", () => <Header time="12pm"/>)
-  .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
+  .add("Appointment with Time", () => <Appointment time="12pm" />)
+  .add("Header", () => <Header time="12pm" />)
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
   .add("Show", () => (
-    <Show 
+    <Show
       student="Lydia Miller-Jones"
       interviewer={interviewers[0]}
       onEdit={action("onEdit")}
       onDelete={action("onDelete")}
-      />))
+    />
+  ))
   .add("Confirm", () => (
     <Confirm
       message="Delete the appointment?"
       onCancel={action("onCancel")}
       onConfirm={action("onConfirm")}
-    />))
-  .add("Status", () => (
-    <Status
-      message="Deleting"
-    />))
+    />
+  ))
+  .add("Status", () => <Status message="Deleting" />)
   .add("Error", () => (
-    <Error message="Could not delete appointment"
-    onClose={action("onClose")}/>))
+    <Error message="Could not delete appointment" onClose={action("onClose")} />
+  ))
   .add("Create", () => (
     <Form
       interviewers={interviewers}
       onSave={action("onSave")}
       onCancel={action("onCancel")}
-    />))
+    />
+  ))
   .add("Edit", () => (
     <Form
       student="Raiza De Guzman"
       interviewer={3}
       interviewers={interviewers}
-      onSave={action("onSave")}
+      // onSave={action("onSave")}
+      onSave={function onSave(student, interviewer) {console.log(`Saving appt with ${student} and ${interviewer} interviewer`)}}
       onCancel={action("onCancel")}
-    />));
+    />
+  ));
