@@ -183,6 +183,7 @@ storiesOf("Appointment", module)
       student="Raiza De Guzman"
       interviewer={3}
       interviewers={interviewers}
+      onCancel={action("onCancel")}
       onSave={action("onSave")}
     />
   ));
