@@ -21,11 +21,20 @@ export default function Application(props) {
 
   useEffect(() => {
     const daysURL = "http://localhost:8001/api/days";
-    axios.get(daysURL).then((response) => {
-      console.log(response.data);
-      // setDays(response.data);
+    const apptsURL = "http://localhost:8001/api/appointments/";
+    Promise.all([
+      axios.get(daysURL),
+      axios.get(apptsURL)
+    ]).then((all) => {
+      console.log(all);
+      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data}));
     });
   }, []);
+
+  // axios.get(daysURL).then((response) => {
+  //   console.log(response.data);
+  //   // setDays(response.data);
+  // });
   
   const appointmentsList =
     Object.values(dailyAppointments).map((appointment) => {
