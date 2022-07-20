@@ -17,13 +17,13 @@ export default function Application(props) {
   const dailyAppointments = [];
 
   const setDay = day => setState({ ...state, day });
-  const setDays = (days) => setState((prev) => ({ ...prev, days }));
+  // const setDays = (days) => setState((prev) => ({ ...prev, days }));
 
   useEffect(() => {
     const daysURL = "http://localhost:8001/api/days";
     axios.get(daysURL).then((response) => {
       console.log(response.data);
-      setDays(response.data);
+      // setDays(response.data);
     });
   }, []);
   
