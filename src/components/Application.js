@@ -53,15 +53,8 @@ export default function Application(props) {
     days: [],
     appointments: {}
   });
-  
-  // setState(Object.assign({}, state, { day: "Tuesday" }));
 
-  // Approach #1:
   const setDay = day => setState({ ...state, day });
-  // OR Approach#2:
-  const setDay = (day) =>
-    setState(Object.assign({}, state, { day: "Tuesday" }));
-
   const setDays = (days) => setState((prev) => ({ ...prev, days }));
 
   useEffect(() => {
