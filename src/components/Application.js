@@ -41,7 +41,7 @@ export default function Application(props) {
   // });
   
   const appointmentsList =
-    Object.values(dailyAppointments).map((appointment) => {
+    dailyAppointments.map((appointment) => {
       const interview = getInterview(state, appointment.interview);
 
       return (
