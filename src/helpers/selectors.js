@@ -19,13 +19,15 @@ export function getAppointmentsForDay(state, day) {
 
 };
 
-// Retrieve interview object for provided interviewer
+// Retrieve interviewer from provided interview object
 export function getInterview(state, interview) {
-  let interviewerId = interview.id;
 
-  if (state.interviewers[interviewerId]) {
-    return state.interviewers[interviewerId]
+  if (!interview) {
+    return null;
   }
 
-  return null;
+  return {
+    student: interview.student,
+    interviewer: state.interviewers[interview.interviewer]
+  }
 }
