@@ -1,5 +1,4 @@
 // Retrieve all appointments for user-selected day
-
 export function getAppointmentsForDay(state, day) {
   let appts = [];
 
@@ -20,3 +19,13 @@ export function getAppointmentsForDay(state, day) {
 
 };
 
+// Retrieve interview object for provided interviewer
+export function getInterview(state, interview) {
+  let interviewerId = interview.id;
+
+  if (state.interviewers[interviewerId]) {
+    return state.interviewers[interviewerId]
+  }
+
+  return null;
+}
