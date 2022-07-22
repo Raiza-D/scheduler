@@ -1,12 +1,7 @@
 import { React, useState } from "react";
 
-const useVisualMode = (value) => {
-  const [state, setState] = useState(state);
+export default function useVisualMode(initial) {
+  const [mode, setMode] = useState(initial);
 
-  const resultsObj = setState(value);
-
-  return resultsObj;
-
-};
-
-export default useVisualMode;
+  return { mode };
+}
