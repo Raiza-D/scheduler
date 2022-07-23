@@ -18,13 +18,16 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
+  const theInterviewers = getInterviewersForDay(state, state.day);
+  console.log("This is the result: ", theInterviewers);
+
   const setDay = day => setState({ ...state, day });
   // const setDays = (days) => setState((prev) => ({ ...prev, days }));
 
   useEffect(() => {
-    const daysURL = "http://localhost:8001/api/days";
-    const apptsURL = "http://localhost:8001/api/appointments/";
-    const interviewersURL = "http://localhost:8001/api/interviewers";
+    const daysURL = "/api/days";
+    const apptsURL = "/api/appointments/";
+    const interviewersURL = "/api/interviewers";
     Promise.all([
       axios.get(daysURL),
       axios.get(apptsURL),
@@ -52,6 +55,7 @@ export default function Application(props) {
             key={appointment.id}
             {...appointment}
             interview={interview}
+            interviewers={theInterviewers}
           />
       );
     });
