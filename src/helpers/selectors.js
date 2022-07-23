@@ -31,3 +31,24 @@ export function getInterview(state, interview) {
     interviewer: state.interviewers[interview.interviewer]
   }
 };
+
+// Retrieve interviewers to show on Form. Selectable when adding or editing an appointment
+export function getInterviewersForDay(state, day) {
+  let interviewers = [];
+
+  state.days.forEach((elem) => {
+    if (elem.name === day) {
+      interviewers = elem.interviewers;
+    } 
+  })
+
+  const allInterviewers = [];
+
+  for (const person of interviewers) {
+    if (state.interviewers[person]) {
+      allInterviewers.push(state.interviewers[person]);
+    }
+  }
+  return allInterviewers;
+
+};
