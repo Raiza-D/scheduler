@@ -13,7 +13,6 @@ export default function Form(props) {
   };
 
   const cancel = () => {
-    console.log("This is the cancel");
     reset();
     props.onCancel();
   };
