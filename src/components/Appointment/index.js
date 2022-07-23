@@ -4,10 +4,15 @@ import "./styles.scss"
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
-import useVisualMode from "../src/hooks/useVisualMode";
+import useVisualMode from "hooks/useVisualMode";
+
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
+
+const { mode, transition, back } = useVisualMode(
+  props.interview ? SHOW : EMPTY
+);
 
 export default function Appointment(props) {
   
