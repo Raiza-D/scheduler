@@ -58,6 +58,7 @@ export default function Application(props) {
       [id]: appointment
     }
 
+    setState(appointments);
   };
   
   const appointmentsList =
