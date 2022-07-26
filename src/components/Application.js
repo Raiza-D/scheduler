@@ -59,6 +59,7 @@ export default function Application(props) {
             {...appointment}
             interview={interview}
             interviewers={interviewersList}
+            bookInterview={bookInterview}
           />
       );
     });
