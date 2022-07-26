@@ -44,6 +44,10 @@ export default function Application(props) {
   //   console.log(response.data);
   //   // setDays(response.data);
   // });
+
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
   
   const appointmentsList =
     dailyAppointments.map((appointment) => {
