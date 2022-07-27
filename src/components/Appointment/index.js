@@ -42,6 +42,9 @@ export default function Appointment(props) {
       .then((response) => {
         transition(EMPTY);
       })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }
 
   return (
