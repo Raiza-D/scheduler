@@ -21,7 +21,6 @@ export default function Application(props) {
   const interviewersList = getInterviewersForDay(state, state.day);
 
   const setDay = day => setState({ ...state, day });
-  // const setDays = (days) => setState((prev) => ({ ...prev, days }));
 
   useEffect(() => {
     const daysURL = "/api/days";
@@ -40,10 +39,6 @@ export default function Application(props) {
       })
   }, []);
 
-  // axios.get(daysURL).then((response) => {
-  //   console.log(response.data);
-  //   // setDays(response.data);
-  // });
 
   function bookInterview(id, interview) {
     const appointment = {
