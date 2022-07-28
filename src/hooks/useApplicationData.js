@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
-
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -47,7 +46,7 @@ export default function useApplicationData() {
     };
 
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
-      setState({ ...state, appointments });
+      setState({ ...state, appointments, days: updateSpots(state, appointments) });
     });
   }
 
@@ -63,8 +62,50 @@ export default function useApplicationData() {
     };
 
     return axios.delete(`/api/appointments/${id}`).then(() => {
-      setState({ ...state, appointments });
+      setState({
+        ...state,
+        appointments,
+        days: updateSpots(state, appointments),
+      });
     });
+  }
+
+  function updateSpots(state, appointments) {
+    return state.days.map((elem) => {
+      if (elem.name === state.day) {
+        return {
+          ...elem,
+          spots: elem.appointments
+            .map((appointment) => appointments[appointment])
+            .filter(({ interview }) => !interview).length,
+        };
+      }
+
+      return elem;
+    });
+
+    // Old function: 
+    // function updateSpots(day) {
+    //   let appts = [];
+
+    //   state.days.forEach((elem) => {
+    //     if (elem.name === day) {
+    //       appts = elem.appointments;
+    //     }
+    //   });
+
+    //   let numOfSpots = 0;
+
+    //   appts.map((appointment) => {
+    //     console.log(appointment);
+    //     if (!state.appointments[appointment].interview) {
+    //       numOfSpots++;
+    //     }
+    //   });
+
+    //   return numOfSpots;
+    // }
+
   }
 
   return { state, setDay, bookInterview, cancelInterview };
