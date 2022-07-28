@@ -83,29 +83,6 @@ export default function useApplicationData() {
 
       return elem;
     });
-
-    // Old function: 
-    // function updateSpots(day) {
-    //   let appts = [];
-
-    //   state.days.forEach((elem) => {
-    //     if (elem.name === day) {
-    //       appts = elem.appointments;
-    //     }
-    //   });
-
-    //   let numOfSpots = 0;
-
-    //   appts.map((appointment) => {
-    //     console.log(appointment);
-    //     if (!state.appointments[appointment].interview) {
-    //       numOfSpots++;
-    //     }
-    //   });
-
-    //   return numOfSpots;
-    // }
-
   }
 
   return { state, setDay, bookInterview, cancelInterview };
