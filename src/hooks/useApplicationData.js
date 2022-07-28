@@ -69,7 +69,3 @@ export default function useApplicationData() {
 
   return { state, setDay, bookInterview, cancelInterview };
 }
-
-// module.exports = {} when using NodeJS programs
-
-// Can only have one export DEFAULT function... in a file/module when working with React
