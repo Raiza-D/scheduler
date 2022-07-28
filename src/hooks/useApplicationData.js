@@ -77,7 +77,7 @@ export default function useApplicationData() {
           ...elem,
           spots: elem.appointments
             .map((appointment) => appointments[appointment])
-            .filter(({ interview }) => !interview).length,
+            .filter(({ interview }) => !interview).length
         };
       }
 
