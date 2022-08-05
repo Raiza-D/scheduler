@@ -6,11 +6,21 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-it("defaults to Monday and changes the schedule when a new day is selected", () => {
-  const { getByText } = render(<Application />);
-
-  return waitForElement(() => getByText("Monday")).then(() => {
-    fireEvent.click(getByText("Tuesday"));
-    expect(getByText("Leopold Silvers")).toBeInTheDocument();
+describe("Appointment", () => {
+  it("defaults to Monday and changes the schedule when a new day is selected", () => {
+    const { getByText } = render(<Application />);
+  
+    return waitForElement(() => getByText("Monday")).then(() => {
+      fireEvent.click(getByText("Tuesday"));
+      expect(getByText("Leopold Silvers")).toBeInTheDocument();
+    });
   });
+
+  it("loads data, books an interview and reduces the spots remaining for the first day by 1", () => {
+  
+  });
+  
 });
+
+
+
