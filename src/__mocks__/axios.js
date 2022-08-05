@@ -69,7 +69,7 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.days
+        data: fixtures.appointments
       });
     }
 
@@ -77,7 +77,7 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.days
+        data: fixtures.interviewers
       });
     }
   })
