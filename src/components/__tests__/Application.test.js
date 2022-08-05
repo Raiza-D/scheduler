@@ -6,7 +6,7 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-describe("Appointment", () => {
+describe("Application", () => {
   it("defaults to Monday and changes the schedule when a new day is selected", () => {
     const { getByText } = render(<Application />);
   
@@ -19,7 +19,7 @@ describe("Appointment", () => {
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", () => {
   
   });
-  
+
 });
 
 
