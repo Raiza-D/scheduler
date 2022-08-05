@@ -56,6 +56,7 @@ const fixtures = {
 
 // Mock get request
 export default {
+  defaults: { baseURL: "" },
   get: jest.fn((url) => {
     if (url === "/api/days") {
       return Promise.resolve({
