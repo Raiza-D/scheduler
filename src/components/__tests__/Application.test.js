@@ -14,6 +14,7 @@ import {
 } from "@testing-library/react";
 
 import Application from "components/Application";
+import axios from "axios";
 
 afterEach(cleanup);
 
@@ -132,6 +133,10 @@ describe("Application", () => {
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
+  it("shows the save error when failing to save an appointment", () => {
+    axios.put.mockRejectedValueOnce();
+  });
+  
 });
 
 
