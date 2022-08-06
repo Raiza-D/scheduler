@@ -55,8 +55,25 @@ describe("Application", () => {
     );
     
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-
   });
+
+  it(
+    "loads data, cancels an interview and increases the spots remaining for Monday by 1", () => {
+
+      // 1. Render the Application.
+  const { container } = render(<Application />);
+
+  // 2. Wait until the text "Archie Cohen" is displayed.
+  await waitForElement(() => getByText(container, "Archie Cohen"));
+
+  // 3. Click the "Delete" button on the Form.
+  // 4. Click "Delete" button on the confirmation.
+  // 5. Check that the element with the text saying "Deleting" is displayed.
+  // 6. Check that the empty appointment now shows the "Add" button.
+  // 7. Check that the DayListItem with the text "Monday" and its spots remaining has increased by 1
+
+
+    });
 
 });
 
