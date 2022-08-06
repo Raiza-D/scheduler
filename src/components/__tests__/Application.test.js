@@ -54,8 +54,6 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
     
-    console.log("These are the results: ", queryByText(day, "Monday"));
-  
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
 
   });
