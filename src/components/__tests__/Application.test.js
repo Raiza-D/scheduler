@@ -61,18 +61,19 @@ describe("Application", () => {
     "loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
 
       // 1. Render the Application.
-  const { container, debug } = render(<Application />);
+    const { container, debug } = render(<Application />);
 
   // 2. Wait until the text "Archie Cohen" is displayed.
-  await waitForElement(() => getByText(container, "Archie Cohen"));
+    await waitForElement(() => getByText(container, "Archie Cohen"));
 
   // 3. Click the "Delete" button on the booked appointment.
-  const appointment = getAllByTestId(container, "appointment").find(appointment => queryByText(appointment, "Archie Cohen"));
+    const appointment = getAllByTestId(container, "appointment").find(appointment => queryByText(appointment, "Archie Cohen"));
 
-  fireEvent.click(getByAltText(appointment, "Delete"));
+    fireEvent.click(getByAltText(appointment, "Delete"));
 
   // 4. Check that the confirmation message is shown.
-  
+    expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
+
   // 5. Click the "Confirm" button on the confirmation.
   // 6. Check that the element with the text "Deleting" is displayed.
   // 7. Wait until the element with the "Add" button is displayed.
