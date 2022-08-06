@@ -125,6 +125,11 @@ describe("Application", () => {
     await waitForElement(() => getByAltText(appointment, "Edit"));
 
   // 9. Check that the DayListItem with the text "Monday" still has the text "2 spots remaining".
+    const day = getAllByTestId(container, "day").find((day) =>
+      queryByText(day, "Monday")
+    );
+
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
   debug();
 
