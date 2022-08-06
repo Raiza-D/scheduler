@@ -52,6 +52,8 @@ describe("Application", () => {
 
     expect(getByText(appointment, "SAVING")).toBeInTheDocument();
 
+    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+
   });
 
 });
