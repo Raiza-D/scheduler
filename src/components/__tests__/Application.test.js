@@ -136,6 +136,10 @@ describe("Application", () => {
   it("shows the save error when failing to save an appointment", () => {
     axios.put.mockRejectedValueOnce();
   });
+
+  it("shows the delete error when failing to delete an existing appointment", () => {
+    axios.delete.mockRejectedValueOnce();
+  });
   
 });
 
