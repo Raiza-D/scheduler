@@ -13,7 +13,10 @@ describe("Appointments", () => {
     cy.get("[data-testid=student-name-input]")
       .type("Lydia Miller-Jones");
 
-    cy.get("[alt='Sylvia Palmer']")
+    cy.get("[alt='Sylvia Palmer']") // Why is Sylvia Palmer in single quotes?
+      .click();
+
+    cy.contains("Save")
       .click();
   });
 
