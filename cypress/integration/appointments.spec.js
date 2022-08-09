@@ -10,7 +10,6 @@ describe("Appointments", () => {
   });
 
   it("should book an interview", () => {
-
     cy.get("[alt=Add]") // We use first() func bc we hide the second Add button. Where is the code for this?
       .first()
       .click();
@@ -28,8 +27,8 @@ describe("Appointments", () => {
     cy.contains(".appointment__card--show", "Sylvia Palmer"); // This is checking Sylvia Palmer for the first appointment. How do I check for Sylvia Palmer in the second and CORRECT appointment?
   });
 
-  it("should edit an interview", () => {
 
+  it("should edit an interview", () => {
     cy.get("[alt=Edit]")
       .first()
       .click({ force: true });
@@ -46,6 +45,13 @@ describe("Appointments", () => {
 
     cy.contains(".appointment__card--show", "Alice Wonderland");
     cy.contains(".appointment__card--show", "Tori Malcolm");
+  });
+
+
+  it("should cancel an interview", () => {
+    cy.get("[alt=Delete]")
+      .first()
+      .click({ force: true });
   });
 
 });
