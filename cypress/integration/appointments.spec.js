@@ -26,6 +26,21 @@ describe("Appointments", () => {
 
     cy.contains(".appointment__card--show", "Lydia Miller-Jones")
     cy.contains(".appointment__card--show", "Sylvia Palmer"); // This is checking Sylvia Palmer for the first appointment. How do I check for Sylvia Palmer in the second and CORRECT appointment?
+  });
+
+  it("should edit an interview", () => {
+
+    cy.get("[data-testid=appointment]")
+      .first()
+      .find("[alt=Edit]")
+      .click({ force: true })
+
+    cy.get("[data-testid=student-name-input]")
+      .clear()
+      .type("Alice Wonderland")
+  
+    cy.get("[alt='Tori Malcolm']")
+      .click();
 
   });
 
