@@ -30,10 +30,9 @@ describe("Appointments", () => {
 
   it("should edit an interview", () => {
 
-    cy.get("[data-testid=appointment]")
+    cy.get("[alt=Edit]")
       .first()
-      .find("[alt=Edit]")
-      .click({ force: true })
+      .click({ force: true });
 
     cy.get("[data-testid=student-name-input]")
       .clear()
