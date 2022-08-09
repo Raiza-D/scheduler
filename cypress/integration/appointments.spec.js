@@ -1,0 +1,5 @@
+// Appointment tests
+
+describe("Appointments", () => {
+
+});
