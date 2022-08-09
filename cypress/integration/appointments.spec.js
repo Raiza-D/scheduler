@@ -42,6 +42,11 @@ describe("Appointments", () => {
     cy.get("[alt='Tori Malcolm']")
       .click();
 
+    cy.contains("Save")
+      .click();
+
+    cy.contains(".appointment__card--show", "Alice Wonderland");
+    cy.contains(".appointment__card--show", "Tori Malcolm");
   });
 
 });
