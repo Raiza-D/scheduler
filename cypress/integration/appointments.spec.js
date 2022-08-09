@@ -2,6 +2,9 @@
 describe("Appointments", () => {
 
   it("should book an interview", () => {
+
+    cy.request("GET", "/api/debug/reset");
+
     cy.visit("/");
 
     cy.contains("li", "Monday") // What's the difference w/ only having Monday?
