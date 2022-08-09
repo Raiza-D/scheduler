@@ -52,6 +52,10 @@ describe("Appointments", () => {
     cy.get("[alt=Delete]")
       .first()
       .click({ force: true });
+
+    cy.contains("Confirm")
+      .click();
+    
   });
 
 });
