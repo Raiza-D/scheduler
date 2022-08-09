@@ -21,6 +21,10 @@ describe("Appointments", () => {
 
     cy.contains("Save")
       .click();
+
+    cy.contains(".appointment__card--show", "Lydia Miller-Jones")
+    cy.contains(".appointment__card--show", "Sylvia Palmer"); // This is checking Sylvia Palmer for the first appointment. How do I check for Sylvia Palmer in the second and CORRECT appointment?
+
   });
 
 });
