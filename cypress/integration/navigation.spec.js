@@ -6,6 +6,6 @@ describe("Navigation", () => {
   it("should navigate to Tuesday", () => {
     cy.visit("/");
 
-    cy.get("li").find("h2").contains("Tuesday").click()
+    cy.get("li").contains("Tuesday").click()
   })
 });
