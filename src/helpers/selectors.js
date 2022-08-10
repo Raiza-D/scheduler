@@ -32,7 +32,7 @@ export function getInterview(state, interview) {
   }
 }
 
-// Retrieve interviewers to show on Form. Selectable when adding or editing an appointment
+// Retrieve interviewers to show on Form component
 export function getInterviewersForDay(state, day) {
   let interviewers = [];
 
