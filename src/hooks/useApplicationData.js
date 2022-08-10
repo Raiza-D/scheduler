@@ -24,7 +24,6 @@ export default function useApplicationData() {
       axios.get(interviewersURL),
     ])
       .then((all) => {
-        console.log(all);
         setState((prev) => ({
           ...prev,
           days: all[0].data,
