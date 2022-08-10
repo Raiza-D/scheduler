@@ -12,7 +12,10 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 1. Install dependencies with `npm install`
 
 2. Open two Terminal windows
+  - Run the Webpack Development Server with `npm start`
+  - Run the scheduler-API server with `npm start`
 
+3. Once the two servers are running, open Google Chrome. The app will be served at `http://localhost:8000`
 
 ## Setup
 
