@@ -1,7 +1,5 @@
 import React from "react";
-
 import { render, cleanup, fireEvent } from "@testing-library/react";
-
 import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
@@ -29,13 +27,11 @@ describe("Form", () => {
   });
 
   it("validates that the student name is not blank", () => {
-    /* 1. Create the mock onSave function */
+    // Creates mock save button
     const onSave = jest.fn();
 
-    /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the student prop should be blank or undefined */
     const { getByText } = render(<Form interviewers={interviewers} onSave={onSave} />);
 
-    /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
 
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
@@ -43,13 +39,11 @@ describe("Form", () => {
   });
 
   it("validates that the interviewer cannot be null", () => {
-    /* 1. Create the mock onSave function */
+    // Creates mock save button
     const onSave = jest.fn();
 
-    /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the interviewer prop should be null */
     const { getByText } = render(<Form interviewers={interviewers} onSave={onSave} student="Lydia Miller-Jones" />)
 
-    /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
 
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
