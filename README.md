@@ -8,6 +8,14 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 
 `React` was used to build the front end of this project. Requests are sent to an API to fetch and store appointment data from a database.
 
+
+## Final Product
+!["Form to add a new appointment"](https://github.com/Raiza-D/scheduler/blob/master/docs/Scheduler_newappt.png?raw=true)
+!["Newly added appointment for Monday"](https://github.com/Raiza-D/scheduler/blob/master/docs/Scheduler_savedappt.png?raw=true)
+!["Leftside navbar showing highlight modes on hover and when there are no time slots available for a day"](https://github.com/Raiza-D/scheduler/blob/master/docs/Scheduler_navbar.png?raw=true)
+!["Message confirming if user wants to proceed with deleting appointment"](https://github.com/Raiza-D/scheduler/blob/master/docs/Scheduler_delete.png?raw=true)
+
+
 ## Getting Started
 1. Install dependencies with `npm install`
 
@@ -17,15 +25,6 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 
 3. Once the two servers are running, open Google Chrome. The app will be served at `http://localhost:8000`
 
-## Setup
-
-Install dependencies with `npm install`.
-
-## Running Webpack Development Server
-
-```sh
-npm start
-```
 
 ## Running Jest Test Framework
 
