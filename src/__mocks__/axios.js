@@ -1,4 +1,4 @@
-// Fixtures
+// -- Fixtures -- //
 const fixtures = {
   days: [
     {
@@ -54,9 +54,10 @@ const fixtures = {
   },
 };
 
-// Mock requests
+// --- Mock requests --- //
 export default {
   defaults: { baseURL: "" },
+  // GET requests - retrieves data for days, appts and interviewers
   get: jest.fn((url) => {
     if (url === "/api/days") {
       return Promise.resolve({
@@ -83,6 +84,7 @@ export default {
     }
   }),
 
+  // PUT requests - add an appointment or update an appt
   put: jest.fn((url) => {
     if (url === "/api/appointments/1") {
       return Promise.resolve({
@@ -99,6 +101,7 @@ export default {
     }
   }),
 
+  // DELETE request - deletes an appt
   delete: jest.fn((url) => {
     if (url === "/api/appointments/1") {
       return Promise.resolve({
