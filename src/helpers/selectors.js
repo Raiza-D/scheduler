@@ -17,7 +17,7 @@ export function getAppointmentsForDay(state, day) {
   }
   return allAppts;
 
-};
+}
 
 // Retrieve interviewer from provided interview object
 export function getInterview(state, interview) {
@@ -30,7 +30,7 @@ export function getInterview(state, interview) {
     student: interview.student,
     interviewer: state.interviewers[interview.interviewer]
   }
-};
+}
 
 // Retrieve interviewers to show on Form. Selectable when adding or editing an appointment
 export function getInterviewersForDay(state, day) {
@@ -51,4 +51,4 @@ export function getInterviewersForDay(state, day) {
   }
   return allInterviewers;
 
-};
+}
