@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
+// Sets states for day, days, appts, and interviewers
 export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
@@ -11,6 +13,7 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
+  // Retrieves API data for days, appts, interviewers
   useEffect(() => {
     const daysURL = "/api/days";
     const apptsURL = "/api/appointments";
@@ -34,6 +37,7 @@ export default function useApplicationData() {
       });
   }, []);
 
+  // Invoked when user adds an interview/appointment
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -50,6 +54,7 @@ export default function useApplicationData() {
     });
   }
 
+  // Invoked when user deletes an interview/appointment
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
@@ -70,6 +75,7 @@ export default function useApplicationData() {
     });
   }
 
+  // Updates the spots remaining element. Invoked when user adds or deletes/cancels an appt
   function updateSpots(state, appointments) {
     return state.days.map((elem) => {
       if (elem.name === state.day) {
