@@ -37,3 +37,11 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Dependencies
+  - `axios` 0.27.2 or above
+  - `classnames` 2.2.x or above
+  - `normalize.css` 8.0.x or above
+  - `react` 16.9.x or above
+  - `react-dom` 16.9.x or above
+  - `react-scripts` 3.x or above
