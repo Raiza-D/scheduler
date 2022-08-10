@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
+
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
@@ -49,12 +49,12 @@ export default function Form(props) {
           />
         </form>
         <section className="appointment__validation">{error}</section>
-        <InterviewerList 
-          interviewers={props.interviewers}
-          value={interviewer}
-          onChange={setInterviewer}
-        />
-      </section>
+          <InterviewerList 
+            interviewers={props.interviewers}
+            value={interviewer}
+            onChange={setInterviewer}
+          />
+        </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
