@@ -13,7 +13,7 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
-  // Retrieves API data for days, appts, interviewers
+  // Retrieves data for days, appts, interviewers from API
   useEffect(() => {
     const daysURL = "/api/days";
     const apptsURL = "/api/appointments";
