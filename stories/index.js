@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
@@ -20,6 +19,7 @@ import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
 
 
+// Registers Button component
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -36,19 +36,20 @@ storiesOf("Button", module)
     </Button>
   ));
 
-
-storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
+//Initiates Storybook and registers our DayListItem component
+storiesOf("DayListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
-  }) // Provides the default background color for our component
-  .add("Unselected", () => <DayListItem name="Monday" spots={5} />) // To define our stories, we call add() once for each of our test states to generate a story
+  })
+  .add("Unselected", () => <DayListItem name="Monday" spots={5} />)
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />)
   .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
-    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // action() allows us to create a callback that appears in the actions panel when clicked
+    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
   ));
 
 
+// Mock data
 const days = [
   {
     id: 1,
@@ -67,6 +68,7 @@ const days = [
   },
 ];
 
+// Registers DayList component
 storiesOf("DayList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
@@ -82,13 +84,14 @@ storiesOf("DayList", module)
   ));
 
 
-// Stories for InterviwerListItem
+// Mock data for InterviwerListItem
 const interviewer = {
   id: 1,
   name: "Sylvia Palmer",
   avatar: "https://i.imgur.com/LpaY82x.png",
 };
 
+// Registers InterviewerListItem
 storiesOf("InterviewerListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
@@ -118,7 +121,7 @@ storiesOf("InterviewerListItem", module)
   ));
 
 
-// Stories for InterviewerList Component
+// Mock data for InterviewerList Component
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -127,6 +130,7 @@ const interviewers = [
   { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" },
 ];
 
+// Stories for InterviewerList Component
 storiesOf("InterviewerList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
@@ -142,8 +146,7 @@ storiesOf("InterviewerList", module)
     />
   ));
 
-
-// Stories for Appointment Component
+// All stories for Appointment components
 storiesOf("Appointment", module)
   .addParameters({
     backgrounds: [{ name: "white", value: "#fff", default: true }],
@@ -187,8 +190,6 @@ storiesOf("Appointment", module)
       onSave={action("onSave")}
     />
   ))
-
-  // Stories for Appointment Empty
   .add("Appointment Empty", () => (
     <Fragment>
       <Appointment
@@ -200,8 +201,6 @@ storiesOf("Appointment", module)
       />
     </Fragment>
   ))
-
-  // Stories for Appointment Booked
   .add("Appointment Booked", () => (
     <Fragment>
       <Appointment
