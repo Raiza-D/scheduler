@@ -122,8 +122,35 @@ describe("Application", () => {
   });
 
   // Checks that Delete error appears when appt deletion fails
-  it("shows the delete error when failing to delete an existing appointment", () => {
+  it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
+
+    const { container } = render(<Application />);
+
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+
+    const appointments = getAllByTestId(container, "appointment");
+
+    const appointment = appointments.find((appointment) =>
+      queryByText(appointment, "Archie Cohen")
+    );
+
+    fireEvent.click(getByAltText(appointment, "Delete"));
+
+    expect(getByText(appointment, "Confirm")).toBeInTheDocument();
+
+    fireEvent.click(getByText(appointment, "Confirm"));
+
+    expect(getByText(appointment, /DELETING/i)).toBeInTheDocument();
+
+    await waitForElement(() =>
+      getByText(appointment, "Could not delete appointment")
+    );
+
+    fireEvent.click(getByAltText(appointment, "Close"));
+    expect(getByText(container, "Archie Cohen")).toBeInTheDocument;
+
+    // axios.delete.mockRejectedValueOnce();
   });
   
 });
