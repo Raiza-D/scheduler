@@ -27,6 +27,7 @@ describe("Application", () => {
     });
   });
 
+  
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
     const { container } = render(<Application />);
 
@@ -116,39 +117,35 @@ describe("Application", () => {
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
+
   // Checks that Save error appears when appt failed to save
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
 
-//   Render the Application.
      const { container } = render(<Application />);
 
-     //wait till data loads before setting appointment variable
      await waitForElement(() => getByText(container, "Archie Cohen"));
      const appointments = getAllByTestId(container, "appointment");
      const appointment = appointments[0];
  
-     // Click the "Add" button on the first empty appointment.
      fireEvent.click(getByAltText(appointment, "Add"));
  
-     // Enter the name "Lydia Miller-Jones" into the input with the placeholder "Enter Student Name".
      fireEvent.change(getByPlaceholderText(appointment, /Enter student name/i), {
        target: { value: "Lydia Miller-Jones" }
      });
  
-     // Click the first interviewer in the list.
      fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
  
-     // Click the "Save" button on that same appointment.
      fireEvent.click(getByText(appointment, "Save"));
 
-    expect(getByText(appointment, /SAVING/i)).toBeInTheDocument();
+      expect(getByText(appointment, /SAVING/i)).toBeInTheDocument();
 
-    await waitForElement(() => getByText(appointment, "Could not save appointment"));
+      await waitForElement(() => getByText(appointment, "Could not save appointment"));
     
-    fireEvent.click(getByAltText(appointment, "Close"));
-    expect(getByText(container, "Archie Cohen")).toBeInTheDocument;
+      fireEvent.click(getByAltText(appointment, "Close"));
+      expect(getByText(container, "Archie Cohen")).toBeInTheDocument;
   });
+
 
   // Checks that Delete error appears when appt deletion fails
   it("shows the delete error when failing to delete an existing appointment", async () => {
