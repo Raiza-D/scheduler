@@ -12,7 +12,7 @@ import Error from "./Error";
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
-const SAVING = "SAVING"
+const SAVING = "SAVING";
 const DELETING = "DELETING";
 const CONFIRM = "Are you sure you would like to delete?";
 const EDIT = "EDIT";
@@ -38,7 +38,6 @@ export default function Appointment(props) {
       })
       .catch((error) => {
         transition(ERROR_SAVE, true);
-        console.log(error.message);
       })
   }
 
@@ -51,7 +50,6 @@ export default function Appointment(props) {
       })
       .catch((error) => {
         transition(ERROR_DELETE, true);
-        console.log(error.message);
       });
   }
 
