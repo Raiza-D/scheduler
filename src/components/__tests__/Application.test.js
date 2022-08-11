@@ -27,7 +27,7 @@ describe("Application", () => {
     });
   });
 
-  
+
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
     const { container } = render(<Application />);
 
@@ -122,28 +122,28 @@ describe("Application", () => {
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
 
-     const { container } = render(<Application />);
+    const { container } = render(<Application />);
 
-     await waitForElement(() => getByText(container, "Archie Cohen"));
-     const appointments = getAllByTestId(container, "appointment");
-     const appointment = appointments[0];
- 
-     fireEvent.click(getByAltText(appointment, "Add"));
- 
-     fireEvent.change(getByPlaceholderText(appointment, /Enter student name/i), {
-       target: { value: "Lydia Miller-Jones" }
-     });
- 
-     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
- 
-     fireEvent.click(getByText(appointment, "Save"));
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+    const appointments = getAllByTestId(container, "appointment");
+    const appointment = appointments[0];
 
-      expect(getByText(appointment, /SAVING/i)).toBeInTheDocument();
+    fireEvent.click(getByAltText(appointment, "Add"));
 
-      await waitForElement(() => getByText(appointment, "Could not save appointment"));
-    
-      fireEvent.click(getByAltText(appointment, "Close"));
-      expect(getByText(container, "Archie Cohen")).toBeInTheDocument;
+    fireEvent.change(getByPlaceholderText(appointment, /Enter student name/i), {
+      target: { value: "Lydia Miller-Jones" }
+    });
+
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+
+    fireEvent.click(getByText(appointment, "Save"));
+
+    expect(getByText(appointment, /SAVING/i)).toBeInTheDocument();
+
+    await waitForElement(() => getByText(appointment, "Could not save appointment"));
+  
+    fireEvent.click(getByAltText(appointment, "Close"));
+    expect(getByText(container, "Archie Cohen")).toBeInTheDocument;
   });
 
 
