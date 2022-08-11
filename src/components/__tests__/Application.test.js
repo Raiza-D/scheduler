@@ -149,8 +149,6 @@ describe("Application", () => {
 
     fireEvent.click(getByAltText(appointment, "Close"));
     expect(getByText(container, "Archie Cohen")).toBeInTheDocument;
-
-    // axios.delete.mockRejectedValueOnce();
   });
   
 });
